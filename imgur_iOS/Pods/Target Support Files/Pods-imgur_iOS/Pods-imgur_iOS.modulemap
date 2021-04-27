@@ -1,0 +1,6 @@
+framework module Pods_imgur_iOS {
+  umbrella header "Pods-imgur_iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
