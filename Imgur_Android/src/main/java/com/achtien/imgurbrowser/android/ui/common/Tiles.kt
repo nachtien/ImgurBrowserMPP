@@ -36,7 +36,6 @@ fun NetworkImage(imageLoader: ImageLoader, url: String, text: String = "", modif
         fadeIn = true,
         imageLoader = imageLoader
     )
-
     Box(
         modifier = Modifier
             .fillMaxWidth()

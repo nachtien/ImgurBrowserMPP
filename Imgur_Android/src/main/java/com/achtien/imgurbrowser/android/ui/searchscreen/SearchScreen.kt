@@ -26,7 +26,7 @@ fun SearchScreen(
     val galleriesState = viewModel.galleriesState.collectAsState()
     Scaffold(topBar = { SearchBar(viewModel) }) {
         val galleries = galleriesState.value
-        if (galleries?.data != null) {
+        if (galleries?.data != null && galleries.data.isNotEmpty()) {
             LazyVerticalGrid(
                 cells = GridCells.Adaptive(minSize = 128.dp)
             ) {
@@ -52,6 +52,8 @@ fun SearchScreen(
                     )
                 }
             }
+        } else {
+            ImgurLogo()
         }
     }
 }
