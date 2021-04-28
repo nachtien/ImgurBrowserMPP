@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -20,16 +21,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import coil.ImageLoader
 import com.achtien.imgurbrowser.android.R
+import com.achtien.imgurbrowser.android.ui.theme.MultiBlendTypography
 import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.imageloading.ImageLoadState
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
-import com.achtien.imgurbrowser.android.ui.theme.MultiBlendTypography
 
 @Composable
-fun NetworkImage(imageLoader: ImageLoader, url: String, text: String = "", onClick: () -> Unit) {
+fun NetworkImage(imageLoader: ImageLoader, url: String, text: String = "", modifier: Modifier = Modifier, onClick: () -> Unit, ) {
     val painter = rememberCoilPainter(
         request = url,
         fadeIn = true,
@@ -40,7 +41,7 @@ fun NetworkImage(imageLoader: ImageLoader, url: String, text: String = "", onCli
         modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = { onClick() })
-            .padding(16.dp)
+            .padding(1.dp)
     ) {
         when (painter.loadState) {
             is ImageLoadState.Loading -> CircularProgressIndicator(Modifier.align(Alignment.Center))
@@ -52,6 +53,8 @@ fun NetworkImage(imageLoader: ImageLoader, url: String, text: String = "", onCli
                 Image(
                     painter = painter,
                     contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = modifier
                 )
                 Text(
                     text = text,
