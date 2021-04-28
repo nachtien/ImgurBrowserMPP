@@ -20,7 +20,8 @@ private const val ANIMATION_DURATION = 1000
 @Composable
 private fun ImgurLogoComponent(dotValue: Float, lineValue: Float) {
     Box {
-        Canvas(modifier = Modifier.fillMaxSize(),
+        Canvas(
+            modifier = Modifier.fillMaxSize(),
             onDraw = {
                 rotate(dotValue, Offset(center.x, 550f)) {
                     drawCircle(
@@ -29,7 +30,8 @@ private fun ImgurLogoComponent(dotValue: Float, lineValue: Float) {
                         radius = 40f,
                     )
                 }
-            })
+            }
+        )
 
         Canvas(
             modifier = Modifier.fillMaxSize(),

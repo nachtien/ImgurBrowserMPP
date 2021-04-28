@@ -11,10 +11,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import me.nickachtien.androidApp.MainDestinations.DETAIL_SCREEN
-import me.nickachtien.androidApp.MainDestinations.GALLERY_ID_KEY
 import com.achtien.imgurbrowser.android.ui.galleryscreen.GalleryScreen
 import com.achtien.imgurbrowser.android.ui.searchscreen.SearchScreen
+import me.nickachtien.androidApp.MainDestinations.DETAIL_SCREEN
+import me.nickachtien.androidApp.MainDestinations.GALLERY_ID_KEY
 
 object MainDestinations {
     const val SEARCH_SCREEN = "search"
@@ -40,15 +40,18 @@ fun NavGraph(
             }
         }
         composable(
-            "${DETAIL_SCREEN}/{$GALLERY_ID_KEY}",
+            "$DETAIL_SCREEN/{$GALLERY_ID_KEY}",
             arguments = listOf(
                 navArgument(GALLERY_ID_KEY) { type = NavType.StringType }
             )
         ) { backStackEntry ->
             val galleryId = requireNotNull(backStackEntry.arguments?.getString(GALLERY_ID_KEY))
-            GalleryScreen(galleryId = galleryId, upPress = {
-                actions.upPress(backStackEntry)
-            })
+            GalleryScreen(
+                galleryId = galleryId,
+                upPress = {
+                    actions.upPress(backStackEntry)
+                }
+            )
         }
     }
 }

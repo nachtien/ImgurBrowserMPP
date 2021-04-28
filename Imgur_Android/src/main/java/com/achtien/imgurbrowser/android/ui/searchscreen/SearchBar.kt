@@ -46,7 +46,8 @@ private fun SearchBarComponent(text: String = "", onValueChange: (String) -> Uni
                 textStyle = TextStyle(color = Color.White),
                 keyboardOptions = KeyboardOptions(autoCorrect = false, imeAction = ImeAction.Search)
             )
-        })
+        }
+    )
 }
 
 @Composable

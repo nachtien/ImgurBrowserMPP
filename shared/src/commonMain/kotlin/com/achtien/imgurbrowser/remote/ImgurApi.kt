@@ -1,6 +1,5 @@
 package com.achtien.imgurbrowser.remote
 
-
 import io.ktor.client.*
 import io.ktor.client.features.*
 import io.ktor.client.features.json.*
@@ -55,9 +54,9 @@ class ImgurApi {
         }
     }
 
-    suspend fun searchForGallery(query: String) : Galleries =
+    suspend fun searchForGallery(query: String): Galleries =
         client.get<Galleries>("$BASE_URL/gallery/search?q=$query")
 
-    suspend fun getGallery(galleryId: String) : Gallery =
+    suspend fun getGallery(galleryId: String): Gallery =
         client.get<Gallery>("$BASE_URL/gallery/album/$galleryId")
 }

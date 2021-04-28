@@ -2,7 +2,6 @@ package com.achtien.imgurbrowser.android.ui.galleryscreen
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
@@ -26,9 +25,11 @@ fun GalleryScreen(viewModel: AlbumViewModel = viewModel(), galleryId: String, up
     viewModel.getGallery(galleryId)
     val galleryState = viewModel.galleryState.collectAsState()
     val gallery = galleryState.value
-    Scaffold(topBar = {
-        GalleryTopBar(title = gallery?.data?.title ?: "", upPress)
-    }) {
+    Scaffold(
+        topBar = {
+            GalleryTopBar(title = gallery?.data?.title ?: "", upPress)
+        }
+    ) {
         LazyColumn {
             gallery?.data?.images?.let { images ->
                 items(images) { image ->
@@ -55,7 +56,8 @@ private fun GalleryTopBar(title: String, upPress: () -> Unit) {
                     contentDescription = stringResource(R.string.label_back)
                 )
             }
-        })
+        }
+    )
 }
 
 @Preview

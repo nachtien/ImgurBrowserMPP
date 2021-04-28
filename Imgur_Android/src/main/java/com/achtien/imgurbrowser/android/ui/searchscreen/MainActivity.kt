@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.ExperimentalFoundationApi
-import me.nickachtien.androidApp.NavGraph
 import com.achtien.imgurbrowser.android.ui.theme.MultiBlendTheme
+import me.nickachtien.androidApp.NavGraph
 
 class MainActivity : AppCompatActivity() {
     @ExperimentalFoundationApi

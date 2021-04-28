@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 
 plugins {
     kotlin("multiplatform")
@@ -83,6 +83,5 @@ kotlin {
         sourceSets["iOSMain"].dependencies {
             implementation(Ktor.clientIos)
         }
-//        val iosMain by getting
     }
 }

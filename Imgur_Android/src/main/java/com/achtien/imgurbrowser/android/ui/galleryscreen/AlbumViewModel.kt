@@ -1,14 +1,15 @@
 package com.achtien.imgurbrowser.android.ui.galleryscreen
 
+import android.widget.Gallery
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.achtien.imgurbrowser.android.Graph.imgurRepository
+import com.achtien.imgurbrowser.remote.Gallery
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import com.achtien.imgurbrowser.android.Graph.imgurRepository
-import com.achtien.imgurbrowser.remote.Gallery
 
 class AlbumViewModel : ViewModel() {
     private val _galleryState = MutableStateFlow<Gallery?>(null)

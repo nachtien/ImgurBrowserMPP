@@ -30,7 +30,13 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
 
 @Composable
-fun NetworkImage(imageLoader: ImageLoader, url: String, text: String = "", modifier: Modifier = Modifier, onClick: () -> Unit, ) {
+fun NetworkImage(
+    imageLoader: ImageLoader,
+    url: String,
+    text: String = "",
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+) {
     val painter = rememberCoilPainter(
         request = url,
         fadeIn = true,
@@ -80,13 +86,16 @@ fun VideoPlayer(url: String, height: Int) {
         }
     }
 
-    AndroidView({ ctx ->
-        PlayerView(ctx).apply {
-            useController = false
-            player = exoPlayer
-            exoPlayer.playWhenReady = true
-        }
-    }, modifier = Modifier
-        .height(height.dp)
-        .fillMaxWidth())
+    AndroidView(
+        { ctx ->
+            PlayerView(ctx).apply {
+                useController = false
+                player = exoPlayer
+                exoPlayer.playWhenReady = true
+            }
+        },
+        modifier = Modifier
+            .height(height.dp)
+            .fillMaxWidth()
+    )
 }

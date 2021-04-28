@@ -16,7 +16,6 @@ object Versions {
     const val testRunner = "1.3.0"
 }
 
-
 object AndroidSdk {
     const val min = 21
     const val compile = 29
