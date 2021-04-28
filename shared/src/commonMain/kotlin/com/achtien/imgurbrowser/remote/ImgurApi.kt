@@ -3,7 +3,6 @@ package com.achtien.imgurbrowser.remote
 
 import io.ktor.client.*
 import io.ktor.client.features.*
-import io.ktor.client.features.get
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
@@ -42,7 +41,7 @@ data class Image(
 )
 
 class ImgurApi {
-    private val client = HttpClient() {
+    private val client = HttpClient {
         install(JsonFeature) {
             serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
                 prettyPrint = true
@@ -56,9 +55,9 @@ class ImgurApi {
         }
     }
 
-    suspend fun searchForGallery(query: String) =
+    suspend fun searchForGallery(query: String) : Galleries =
         client.get<Galleries>("$BASE_URL/gallery/search?q=$query")
 
-    suspend fun getGallery(galleryId: String) =
+    suspend fun getGallery(galleryId: String) : Gallery =
         client.get<Gallery>("$BASE_URL/gallery/album/$galleryId")
 }

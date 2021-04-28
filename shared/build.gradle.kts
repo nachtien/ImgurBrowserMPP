@@ -30,14 +30,13 @@ android {
 
 kotlin {
     android()
-
-    val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-        if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-            ::iosArm64
-        else
-            ::iosX64
-
-    iosTarget("ios") {}
+    val sdkName: String? = System.getenv("SDK_NAME")
+    val isiOSDevice = sdkName.orEmpty().startsWith("iphoneos")
+    if (isiOSDevice) {
+        iosArm64("iOS")
+    } else {
+        iosX64("iOS")
+    }
 
     cocoapods {
         summary = "Some description for the Shared Module"
@@ -81,12 +80,9 @@ kotlin {
                 implementation("junit:junit:4.13.2")
             }
         }
-        sourceSets["iosMain"].dependencies {
+        sourceSets["iOSMain"].dependencies {
             implementation(Ktor.clientIos)
         }
 //        val iosMain by getting
-        val iosTest by getting
-
-
     }
 }

@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FetchImage",
+        "repositoryURL": "https://github.com/kean/FetchImage",
+        "state": {
+          "branch": null,
+          "revision": "cac844a0dea908c6e068fc8c6a0f949179c7f876",
+          "version": "0.4.0"
+        }
+      },
+      {
+        "package": "Nuke",
+        "repositoryURL": "https://github.com/kean/Nuke.git",
+        "state": {
+          "branch": null,
+          "revision": "200016df418ed8dc70ba918d52c29634f434541c",
+          "version": "9.5.0"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "76dd4b49110b8624317fc128e7fa0d8a252018bc",
+          "version": "5.11.1"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI",
+        "state": {
+          "branch": null,
+          "revision": "cd8625b7cf11a97698e180d28bb7d5d357196678",
+          "version": "2.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

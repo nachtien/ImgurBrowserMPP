@@ -2,4 +2,9 @@ target 'imgur_iOS' do
   use_frameworks!
   platform :ios, '14.1'
   pod 'shared', :path => '../shared'
+  pod 'Nuke', '~> 9.0'
 end
+
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
+use_frameworks!
