@@ -6,9 +6,7 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -16,16 +14,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 
 private const val ANIMATION_DURATION = 1000
 
 @Composable
-fun JustALine(dotValue: Float, lineValue: Float) {
+private fun ImgurLogoComponent(dotValue: Float, lineValue: Float) {
     Box {
-        Canvas(modifier = Modifier
-            .fillMaxWidth()
-            .height(300.dp),
+        Canvas(modifier = Modifier.fillMaxSize(),
             onDraw = {
                 rotate(dotValue, Offset(center.x, 550f)) {
                     drawCircle(
@@ -36,11 +31,10 @@ fun JustALine(dotValue: Float, lineValue: Float) {
                 }
             })
 
-        Canvas(modifier = Modifier
-            .fillMaxWidth()
-            .height(60.dp),
+        Canvas(
+            modifier = Modifier.fillMaxSize(),
             onDraw = {
-                rotate(lineValue, Offset(center.x, 550f)){
+                rotate(lineValue, Offset(center.x, 550f)) {
                     drawLine(
                         Color.White,
                         start = Offset(center.x, 450f),
@@ -49,24 +43,22 @@ fun JustALine(dotValue: Float, lineValue: Float) {
                         cap = StrokeCap.Round,
                     )
                 }
-            },
+            }
         )
     }
 }
 
 @Composable
 @Preview
-fun ImgurLogo() {
-    Column(modifier = Modifier.height((128 * 3).dp)) {
-        val dotValue = rememberInfiniteTransition().animateFloat(
-            initialValue = 0f,
-            targetValue = 360f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(
-                    durationMillis = ANIMATION_DURATION,
-                )
-        ))
-
-        JustALine(dotValue.value, -dotValue.value)
-    }
+fun ImgurLoadingAnimation() {
+    val dotValue = rememberInfiniteTransition().animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                durationMillis = ANIMATION_DURATION,
+            )
+        )
+    )
+    ImgurLogoComponent(dotValue.value, -dotValue.value)
 }

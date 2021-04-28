@@ -52,10 +52,9 @@ private fun SearchBarComponent(text: String = "", onValueChange: (String) -> Uni
 @Composable
 fun SearchBar(viewModel: SearchGalleryViewModel) {
     var text by rememberSaveable { mutableStateOf("") }
-    val onValueChange = { value: String ->
+
+    SearchBarComponent(text) { value ->
         text = value
         viewModel.searchGalleries(value)
     }
-
-    SearchBarComponent(text, onValueChange)
 }

@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.achtien.imgurbrowser.android.Graph.imageLoader
 import com.achtien.imgurbrowser.android.ui.common.NetworkImage
+import com.achtien.imgurbrowser.remote.GalleryItem
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -22,38 +23,45 @@ fun SearchScreen(
     viewModel: SearchGalleryViewModel = viewModel(),
     onGallerySelected: (String) -> Unit
 ) {
-    val context = LocalContext.current
     val galleriesState = viewModel.galleriesState.collectAsState()
+    val isLoading = viewModel.isLoading.collectAsState()
+
     Scaffold(topBar = { SearchBar(viewModel) }) {
         val galleries = galleriesState.value
-        if (galleries?.data != null && galleries.data.isNotEmpty()) {
+        if (isLoading.value) {
+            ImgurLoadingAnimation()
+        } else if (galleries?.data != null && galleries.data.isNotEmpty()) {
             LazyVerticalGrid(
                 cells = GridCells.Adaptive(minSize = 128.dp)
             ) {
                 items(galleries.data) { gallery ->
-                    val cover =
-                        if (gallery.is_album) "https://i.imgur.com/${gallery.cover}.jpg" else gallery.link
-                    NetworkImage(
-                        imageLoader,
-                        cover,
-                        gallery.title,
-                        onClick = {
-                            if (gallery.is_album) {
-                                onGallerySelected(gallery.id)
-                            } else {
-                                Toast.makeText(
-                                    context,
-                                    "Single images not supported",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        },
-                        modifier = Modifier.height(100.dp)
-                    )
+                    ItemView(gallery = gallery, onGallerySelected)
                 }
             }
-        } else {
-            ImgurLogo()
         }
     }
+}
+
+@Composable
+private fun ItemView(gallery: GalleryItem, onItemSelected: (galleryId: String) -> Unit) {
+    val context = LocalContext.current
+    val cover =
+        if (gallery.is_album) "https://i.imgur.com/${gallery.cover}.jpg" else gallery.link
+    NetworkImage(
+        imageLoader,
+        cover,
+        gallery.title,
+        onClick = {
+            if (gallery.is_album) {
+                onItemSelected(gallery.id)
+            } else {
+                Toast.makeText(
+                    context,
+                    "Single images not supported",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        },
+        modifier = Modifier.height(100.dp)
+    )
 }
