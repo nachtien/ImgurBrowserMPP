@@ -1,6 +1,5 @@
 package com.achtien.imgurbrowser.android.ui.galleryscreen
 
-import android.widget.Gallery
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.achtien.imgurbrowser.android.Graph.imgurRepository
