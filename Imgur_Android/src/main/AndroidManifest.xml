@@ -7,10 +7,10 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/Theme.MultiBlend.NoActionBar"
-        android:name=".App"
+        android:name="App"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".ui.searchscreen.MainActivity">
+        <activity android:name="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

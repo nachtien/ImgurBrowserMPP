@@ -1,23 +1,23 @@
 PODS:
+  - common (1.0)
   - Nuke (9.5.0)
-  - shared (1.0)
 
 DEPENDENCIES:
+  - common (from `../common`)
   - Nuke (~> 9.0)
-  - shared (from `../shared`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Nuke
 
 EXTERNAL SOURCES:
-  shared:
-    :path: "../shared"
+  common:
+    :path: "../common"
 
 SPEC CHECKSUMS:
+  common: 234067507fde9f85a0a597a0b296a64792b648fb
   Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
-  shared: 29346581d099b8843a69aab157c4d0577c3c8287
 
-PODFILE CHECKSUM: 77942aa2d936eed77afbbc318277beef2e58a035
+PODFILE CHECKSUM: 167de2d76344af499a8004687ad55cbc12175e1f
 
 COCOAPODS: 1.10.1

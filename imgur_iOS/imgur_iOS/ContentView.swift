@@ -1,5 +1,5 @@
 import SwiftUI
-import shared
+import common
 import Nuke
 import FetchImage
 import SDWebImageSwiftUI

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import shared
+import common
 import Combine
 
 class GallerySearchViewModel: ObservableObject {
