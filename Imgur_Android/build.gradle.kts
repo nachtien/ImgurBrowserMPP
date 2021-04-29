@@ -32,8 +32,6 @@ dependencies {
     implementation(Coil.coilGif)
     implementation(Coil.coilVideo)
 
-    implementation("org.osmdroid:osmdroid-android:6.1.10")
-
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.test:core:1.3.0")
     testImplementation("org.robolectric:robolectric:4.4")
