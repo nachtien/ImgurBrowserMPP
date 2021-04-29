@@ -1,5 +1,5 @@
-import MainDestinations.DETAIL_SCREEN
-import MainDestinations.GALLERY_ID_KEY
+package com.imgurbrowser
+
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.lifecycle.Lifecycle
@@ -11,6 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import com.imgurbrowser.MainDestinations.DETAIL_SCREEN
+import com.imgurbrowser.MainDestinations.GALLERY_ID_KEY
 import gallery.GalleryScreen
 import homescreen.SearchScreen
 

@@ -3,35 +3,14 @@ import org.jetbrains.compose.compose
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
-    id("com.android.library")
     id("kotlinx-serialization")
     id("org.jetbrains.compose")
 }
 
 version = "1.0"
 
-android {
-    compileSdkVersion(30)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(23)
-        targetSdkVersion(30)
-    }
-
-//     https://stackoverflow.com/questions/65372825/kotlin-multiplatform-configuration-issue
-    configurations {
-        create("androidTestApi")
-        create("androidTestDebugApi")
-        create("androidTestReleaseApi")
-        create("testApi")
-        create("testDebugApi")
-        create("testReleaseApi")
-    }
-}
-
 kotlin {
-    android()
-    jvm("desktop") {
+    org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "11"
         }
@@ -85,33 +64,6 @@ kotlin {
                 // Kotlinx Serialization
                 implementation(Serialization.core)
             }
-        }
-        sourceSets["androidMain"].apply {
-            dependencies {
-                implementation(Ktor.clientAndroid)
-                implementation("androidx.compose.runtime:runtime:${Versions.compose}")
-
-                implementation("com.google.android.material:material:1.3.0")
-                implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01")
-                implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha01")
-//                implementation("androidx.activity:activity-compose:1.3.0-alpha07")
-//
-//                implementation(Compose.ui)
-//                implementation(Compose.uiGraphics)
-//                implementation(Compose.uiTooling)
-//                implementation(Compose.foundationLayout)
-//                implementation(Compose.material)
-//                implementation(Compose.runtimeLiveData)
-//                implementation(Compose.navigation)
-//                implementation(Compose.accompanist)
-//                implementation(Compose.compiler)
-
-                implementation("org.osmdroid:osmdroid-android:6.1.10")
-                implementation(Coil.coilGif)
-
-            }
-            dependsOn(sourceSets["composeUi"])
-            dependsOn(sourceSets["commonMain"])
         }
 
         sourceSets["iOSMain"].dependencies {

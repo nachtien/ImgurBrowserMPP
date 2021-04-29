@@ -1,3 +1,5 @@
+package com.imgurbrowser
+
 import android.app.Application
 
 /**

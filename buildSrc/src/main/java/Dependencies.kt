@@ -3,17 +3,13 @@ object Versions {
     const val kotlinCoroutines = "1.5.0-RC"
     const val ktor = "1.5.3"
     const val kotlinxSerialization = "1.1.0"
-    const val kermit = "0.1.8"
     const val exoplayer = "2.13.3"
 
-    const val slf4j = "1.7.30"
     const val compose = "1.0.0-beta05"
+    const val composeActivity = "1.3.0-alpha07"
     const val nav_compose = "1.0.0-alpha10"
     const val accompanist = "0.8.1"
     const val coilExtensionLibrary = "1.2.0"
-
-    const val junit = "4.13"
-    const val testRunner = "1.3.0"
 }
 
 object AndroidSdk {
@@ -23,6 +19,7 @@ object AndroidSdk {
 }
 
 object Compose {
+    const val activity = "androidx.activity:activity-compose:${Versions.composeActivity}"
     const val ui = "androidx.compose.ui:ui:${Versions.compose}"
     const val uiGraphics = "androidx.compose.ui:ui-graphics:${Versions.compose}"
     const val compiler = "androidx.compose.compiler:compiler:1.0.0-alpha03"
@@ -49,15 +46,16 @@ object Kotlin {
 }
 
 object Ktor {
-    val clientCore = "io.ktor:ktor-client-core:${Versions.ktor}"
-    val clientJson = "io.ktor:ktor-client-json:${Versions.ktor}"
-    val clientLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
-    val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
+    const val clientCore = "io.ktor:ktor-client-core:${Versions.ktor}"
+    const val clientJson = "io.ktor:ktor-client-json:${Versions.ktor}"
+    const val clientLogging = "io.ktor:ktor-client-logging:${Versions.ktor}"
+    const val clientSerialization = "io.ktor:ktor-client-serialization:${Versions.ktor}"
 
-    val clientAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
-    val clientIos = "io.ktor:ktor-client-ios:${Versions.ktor}"
+    const val clientAndroid = "io.ktor:ktor-client-android:${Versions.ktor}"
+    const val clientIos = "io.ktor:ktor-client-ios:${Versions.ktor}"
 }
 
 object Serialization {
-    val core = "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinxSerialization}"
+    const val core =
+        "org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.kotlinxSerialization}"
 }
