@@ -3,8 +3,6 @@ package com.imgur.browser.search
 import com.imgur.browser.Graph.imgurRepository
 import com.imgur.browser.remote.Galleries
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -14,10 +12,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-class SearchGalleryViewModel {
-
-    private val coroutineScope = CoroutineScope(Dispatchers.Unconfined)
-
+class SearchGalleryViewModel(private val scope: CoroutineScope) {
     private val _galleriesState = MutableStateFlow<Galleries?>(null)
     val galleriesState = _galleriesState.asStateFlow()
     private val _isLoading = MutableStateFlow(false)
@@ -36,20 +31,16 @@ class SearchGalleryViewModel {
                     println("error")
                 }
             }
-            .launchIn(coroutineScope)
+            .launchIn(scope)
     }
 
     fun searchGalleries(query: String) {
         // Let's add a delay so we can show off the pretty loading indicator
-        coroutineScope.launch {
+        scope.launch {
             _isLoading.value = true
             searchQuery.value = query
             delay(2000)
             _isLoading.value = false
         }
-    }
-
-    fun onDestroy() {
-        coroutineScope.cancel()
     }
 }

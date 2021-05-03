@@ -16,7 +16,7 @@ import imgur.ui.searchscreen.SearchBar
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SearchScreen(
-    viewModel: SearchGalleryViewModel = SearchGalleryViewModel(),
+    viewModel: SearchGalleryViewModel,
     onGallerySelected: (String) -> Unit
 ) {
     val galleriesState = viewModel.galleriesState.collectAsState()
@@ -34,8 +34,7 @@ fun SearchScreen(
                     NetworkImage(
                         if (gallery.is_album) "https://i.imgur.com/${gallery.cover}s.jpg" else gallery.link,
                         gallery.title
-                    )
-                    {
+                    ) {
                         if (gallery.is_album) {
                             onGallerySelected(gallery.id)
                         } else {

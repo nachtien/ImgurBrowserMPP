@@ -3,6 +3,7 @@ package com.imgur.browser.common
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -25,16 +26,22 @@ actual fun VideoPlayer(url: String, height: Int) {
         }
     }
 
-    AndroidView(
-        { ctx ->
-            PlayerView(ctx).apply {
-                useController = false
-                player = exoPlayer
-                exoPlayer.playWhenReady = true
-            }
-        },
-        modifier = Modifier
-            .height(height.dp)
-            .fillMaxWidth()
-    )
+    DisposableEffect(
+        AndroidView(
+            { ctx ->
+                PlayerView(ctx).apply {
+                    useController = false
+                    player = exoPlayer
+                    exoPlayer.playWhenReady = true
+                }
+            },
+            modifier = Modifier
+                .height(height.dp)
+                .fillMaxWidth()
+        )
+    ) {
+        onDispose {
+            exoPlayer.release()
+        }
+    }
 }
