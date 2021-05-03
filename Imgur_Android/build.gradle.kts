@@ -27,6 +27,8 @@ dependencies {
     implementation(Compose.runtimeLiveData)
     implementation(Compose.navigation)
     implementation(Compose.accompanist)
+    implementation(Compose.pagingCompose)
+    implementation(Compose.pagingRuntime)
     implementation(Exoplayer.exoPlayer)
     implementation(Compose.compiler)
     implementation(Coil.coilGif)

@@ -1,12 +1,15 @@
 package com.achtien.imgurbrowser.remote
 
-import io.ktor.client.*
-import io.ktor.client.features.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
-import io.ktor.client.request.*
-import io.ktor.http.*
+import io.ktor.client.HttpClient
+import io.ktor.client.features.defaultRequest
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.request.get
+import io.ktor.client.request.header
+import io.ktor.client.request.parameter
+import io.ktor.http.HttpHeaders
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 
 private const val CLIENT_ID = "6685dd82a89f8ec"
 private const val BASE_URL = "https://api.imgur.com/3"
@@ -42,7 +45,7 @@ data class Image(
 class ImgurApi {
     private val client = HttpClient {
         install(JsonFeature) {
-            serializer = KotlinxSerializer(kotlinx.serialization.json.Json {
+            serializer = KotlinxSerializer(Json {
                 prettyPrint = true
                 ignoreUnknownKeys = true
                 coerceInputValues = true
@@ -54,8 +57,10 @@ class ImgurApi {
         }
     }
 
-    suspend fun searchForGallery(query: String): Galleries =
-        client.get<Galleries>("$BASE_URL/gallery/search?q=$query")
+    suspend fun searchForGallery(query: String, page: Int = 0): Galleries =
+        client.get<Galleries>("$BASE_URL/gallery/search/$page/") {
+                parameter("query", query)
+        }
 
     suspend fun getGallery(galleryId: String): Gallery =
         client.get<Gallery>("$BASE_URL/gallery/album/$galleryId")

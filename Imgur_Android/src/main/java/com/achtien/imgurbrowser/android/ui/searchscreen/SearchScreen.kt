@@ -9,11 +9,15 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.achtien.imgurbrowser.android.Graph.imageLoader
+import com.achtien.imgurbrowser.android.Graph.imgurRepository
 import com.achtien.imgurbrowser.android.ui.common.NetworkImage
 import com.achtien.imgurbrowser.remote.GalleryItem
 
@@ -23,7 +27,21 @@ fun SearchScreen(
     viewModel: SearchGalleryViewModel = viewModel(),
     onGallerySelected: (String) -> Unit
 ) {
-    val galleriesState = viewModel.galleriesState.collectAsState()
+
+    val pager = remember {
+        Pager(
+            PagingConfig(
+                pageSize = 50,
+                enablePlaceholders = true,
+                maxSize = 200
+            )
+        ) {
+            imgurRepository.searchForGallery("")
+        }
+    }
+
+    val galleriesState = viewModel.galleriesState.value?.collectAsLazyPagingItems()
+
     val isLoading = viewModel.isLoading.collectAsState()
 
     Scaffold(topBar = { SearchBar(viewModel) }) {
@@ -31,6 +49,7 @@ fun SearchScreen(
         if (isLoading.value) {
             ImgurLoadingAnimation()
         } else if (galleries?.data != null && galleries.data.isNotEmpty()) {
+
             LazyVerticalGrid(
                 cells = GridCells.Adaptive(minSize = 128.dp)
             ) {

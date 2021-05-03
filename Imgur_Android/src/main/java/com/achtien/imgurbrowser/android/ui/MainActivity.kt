@@ -1,4 +1,4 @@
-package com.achtien.imgurbrowser.android.ui.searchscreen
+package com.achtien.imgurbrowser.android.ui
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
