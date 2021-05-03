@@ -1,5 +1,5 @@
 import SwiftUI
-import common
+import imgur.browser.common
 import Nuke
 import FetchImage
 import SDWebImageSwiftUI
@@ -68,4 +68,3 @@ struct ImageRow: View {
     }
 }
 }
-

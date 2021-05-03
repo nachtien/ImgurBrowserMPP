@@ -85,7 +85,6 @@
 		3F91FB9C4CAED65B490B0E0CFF1F1DA1 /* ImageRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageRequest.swift; path = Sources/ImageRequest.swift; sourceTree = "<group>"; };
 		4049461AC6CAB2B2E20D99AD6EF8431A /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Sources/Internal/Log.swift; sourceTree = "<group>"; };
 		4053A93BB4C947997F667932C433847A /* Nuke.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Nuke.modulemap; sourceTree = "<group>"; };
-		41AAFFD7D7ED0A30609B4ED3BFD4878B /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = common.framework; path = build/cocoapods/framework/common.framework; sourceTree = "<group>"; };
 		44D66225C0460798A412EC30434BFF9B /* LinkedList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Sources/Internal/LinkedList.swift; sourceTree = "<group>"; };
 		44F638062D6EC371960CA375CCAA0DB3 /* ImageDecoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDecoding.swift; path = Sources/ImageDecoding.swift; sourceTree = "<group>"; };
 		4767530A748D9FEAD2EA9B923F83745D /* common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = common.release.xcconfig; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		EA7C0008688AD508BCE56609C1659642 /* ImageTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTask.swift; path = Sources/ImageTask.swift; sourceTree = "<group>"; };
 		EF812F0808E03C8453546BC1DC6554F2 /* Nuke-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nuke-umbrella.h"; sourceTree = "<group>"; };
 		F2AA0C602273732BF2047600E54DF43A /* Pods-imgur_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-imgur_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		F78945AFCB582DB2B08B0F150A67C74E /* common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = common.framework; path = build/cocoapods/framework/com/imgur/browser/common.framework; sourceTree = "<group>"; };
 		FF6C70BC2BE15A0F23F040030F5A5EB2 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Internal/Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,14 +176,6 @@
 			path = "Target Support Files/Pods-imgur_iOS";
 			sourceTree = "<group>";
 		};
-		4E9E86FC38F7F94A5A68346D4C927E10 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				41AAFFD7D7ED0A30609B4ED3BFD4878B /* common.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,7 +187,7 @@
 		95A0B4317AB64C3EC2366FAE9EEB4325 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				4E9E86FC38F7F94A5A68346D4C927E10 /* Frameworks */,
+				A27F92EE381B60D1EE59DFA06C10BCF7 /* Frameworks */,
 				E3FB139BD375F2708826E83055840D0B /* Pod */,
 				9FB3889A53DDBDD531E0C5F733AA5020 /* Support Files */,
 			);
@@ -246,6 +238,14 @@
 			);
 			name = "Support Files";
 			path = "../imgur_iOS/Pods/Target Support Files/common";
+			sourceTree = "<group>";
+		};
+		A27F92EE381B60D1EE59DFA06C10BCF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F78945AFCB582DB2B08B0F150A67C74E /* common.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A534ECAEA5F0A03EFFABCF1B79475E00 /* Development Pods */ = {

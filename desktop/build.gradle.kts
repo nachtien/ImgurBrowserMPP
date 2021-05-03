@@ -6,23 +6,18 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-group = "me.nickachtien"
-version = "1.0"
-
 kotlin {
     jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "11"
-        }
+        withJava()
     }
     sourceSets {
-        val jvmMain by getting {
+        named("jvmMain") {
             dependencies {
-                implementation(project(":common"))
                 implementation(compose.desktop.currentOs)
+                implementation(project(":common:compose-ui"))
+                implementation(Vlc.vlcj)
             }
         }
-        val jvmTest by getting
     }
 }
 

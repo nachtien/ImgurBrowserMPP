@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.imgurbrowser">
+          package="com.imgur.browser">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:allowBackup="false"
-        android:supportsRtl="true"
-        android:name=".App"
-        android:usesCleartextTraffic="true">
-        <activity android:name="com.imgurbrowser.MainActivity">
+            android:allowBackup="false"
+            android:supportsRtl="true"
+            android:name=".App"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:usesCleartextTraffic="true">
+        <activity android:name="com.imgur.browser.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

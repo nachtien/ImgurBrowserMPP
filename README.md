@@ -1,7 +1,7 @@
 # ImgurBrowserMPP
 This is a multi platform project where both iOS and Android use the same repository.
 
-Android: An Imgur gallery search app that harnesses Jetpack compose, MVVM, and coroutines.
+Android: An Imgur imgur.browser.gallery search app that harnesses Jetpack compose, MVVM, and coroutines.
 
 iOS: A basic search for galleries that takes advantage of SwiftUI
 

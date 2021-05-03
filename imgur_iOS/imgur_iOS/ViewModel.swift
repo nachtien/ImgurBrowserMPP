@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import common
+import imgur.browser.common
 import Combine
 
 class GallerySearchViewModel: ObservableObject {

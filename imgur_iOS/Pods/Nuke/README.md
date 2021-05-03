@@ -215,7 +215,9 @@ public protocol ImageProcessing {
 }
 ```
 
-In addition to `var identifier: String`, you can implement `var hashableIdentifier: AnyHashable` to be used by the memory cache where string manipulations would be too slow. By default, this method returns the `identifier` string. A common approach is to make your processor `Hashable` and return `self` from `hashableIdentifier`.
+In addition to `var identifier: String`, you can implement `var hashableIdentifier: AnyHashable` to be used by the
+memory cache where string manipulations would be too slow. By default, this method returns the `identifier` string. A
+imgur.browser.common approach is to make your processor `Hashable` and return `self` from `hashableIdentifier`.
 
 <br/>
 
@@ -502,17 +504,21 @@ let task = ImagePipeline.shared.loadImage(
 
 There is a variety of extensions available for Nuke:
 
-|Name|Description|
-|--|--|
-|[**FetchImage**](https://github.com/kean/FetchImage)|SwiftUI integration|
-|[**ImagePublisher**](https://github.com/kean/ImagePublisher)|Combine publishers for Nuke|
-|[**ImageTaskBuilder**](https://github.com/kean/ImageTaskBuilder)|A fun and convenient way to use Nuke|
-|[**Alamofire Plugin**](https://github.com/kean/Nuke-Alamofire-Plugin)|Replace networking layer with [Alamofire](https://github.com/Alamofire/Alamofire) and combine the power of both frameworks|
-|[**RxNuke**](https://github.com/kean/RxNuke)|[RxSwift](https://github.com/ReactiveX/RxSwift) extensions for Nuke with examples of common use cases solved by Rx|
-|[**WebP Plugin**](https://github.com/ryokosuge/Nuke-WebP-Plugin)| **[Community]** [WebP](https://developers.google.com/speed/webp/) support, built by [Ryo Kosuge](https://github.com/ryokosuge)|
-|[**Gifu Plugin**](https://github.com/kean/Nuke-Gifu-Plugin)|Use [Gifu](https://github.com/kaishin/Gifu) to load and display animated GIFs|
-|[**FLAnimatedImage Plugin**](https://github.com/kean/Nuke-AnimatedImage-Plugin)|Use [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage) to load and display [animated GIFs]((https://www.youtube.com/watch?v=fEJqQMJrET4))|
-|[**Xamarin NuGet**](https://github.com/roubachof/Xamarin.Forms.Nuke)| **[Community]** Makes it possible to use Nuke from Xamarin|
+|Name|Description| |--|--| |[**FetchImage**](https://github.com/kean/FetchImage)|SwiftUI integration| |[**
+ImagePublisher**](https://github.com/kean/ImagePublisher)|Combine publishers for Nuke| |[**
+ImageTaskBuilder**](https://github.com/kean/ImageTaskBuilder)|A fun and convenient way to use Nuke| |[**Alamofire
+Plugin**](https://github.com/kean/Nuke-Alamofire-Plugin)|Replace networking layer
+with [Alamofire](https://github.com/Alamofire/Alamofire) and combine the power of both frameworks| |[**
+RxNuke**](https://github.com/kean/RxNuke)|[RxSwift](https://github.com/ReactiveX/RxSwift) extensions for Nuke with
+examples of imgur.browser.common use cases solved by Rx| |[**WebP
+Plugin**](https://github.com/ryokosuge/Nuke-WebP-Plugin)| **[Community]** [WebP](https://developers.google.com/speed/webp/)
+support, built by [Ryo Kosuge](https://github.com/ryokosuge)|
+|[**Gifu Plugin**](https://github.com/kean/Nuke-Gifu-Plugin)|Use [Gifu](https://github.com/kaishin/Gifu) to load and
+display animated GIFs| |[**FLAnimatedImage
+Plugin**](https://github.com/kean/Nuke-AnimatedImage-Plugin)|Use [FLAnimatedImage](https://github.com/Flipboard/FLAnimatedImage)
+to load and display [animated GIFs]((https://www.youtube.com/watch?v=fEJqQMJrET4))|
+|[**Xamarin NuGet**](https://github.com/roubachof/Xamarin.Forms.Nuke)| **[Community]** Makes it possible to use Nuke
+from Xamarin|
 
 <br/>
 
@@ -572,9 +578,17 @@ ImagePipeline.shared.image(with: URL(string: "https://")!)
 
 ### RxNuke
 
-[RxNuke](https://github.com/kean/RxNuke) adds [RxSwift](https://github.com/ReactiveX/RxSwift) extensions for Nuke and enables common use cases: [Going from low to high resolution](https://github.com/kean/RxNuke#going-from-low-to-high-resolution) | [Loading the first available image](https://github.com/kean/RxNuke#loading-the-first-available-image) | [Showing stale image while validating it](https://github.com/kean/RxNuke#showing-stale-image-while-validating-it) | [Load multiple images, display all at once](https://github.com/kean/RxNuke#load-multiple-images-display-all-at-once) | [Auto retry on failures](https://github.com/kean/RxNuke#auto-retry) | [And more](https://github.com/kean/RxNuke#use-cases)
+[RxNuke](https://github.com/kean/RxNuke) adds [RxSwift](https://github.com/ReactiveX/RxSwift) extensions for Nuke and
+enables imgur.browser.common use
+cases: [Going from low to high resolution](https://github.com/kean/RxNuke#going-from-low-to-high-resolution)
+| [Loading the first available image](https://github.com/kean/RxNuke#loading-the-first-available-image)
+| [Showing stale image while validating it](https://github.com/kean/RxNuke#showing-stale-image-while-validating-it)
+| [Load multiple images, display all at once](https://github.com/kean/RxNuke#load-multiple-images-display-all-at-once)
+| [Auto retry on failures](https://github.com/kean/RxNuke#auto-retry)
+| [And more](https://github.com/kean/RxNuke#use-cases)
 
-To get a taste of what you can do with this extension, take a look at how easy it is to load the low resolution image first and then switch to high resolution:
+To get a taste of what you can do with this extension, take a look at how easy it is to load the low resolution image
+first and then switch to high resolution:
 
 ```swift
 let pipeline = ImagePipeline.shared

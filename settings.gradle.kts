@@ -1,13 +1,5 @@
-pluginManagement {
-    repositories {
-        google()
-        gradlePluginPortal()
-        mavenCentral()
-        maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
-    }
-}
-
-rootProject.name = "Imgur_Browser"
+//rootProject.name = "Imgur_Browser"
+include(":common:main")
+include(":common:compose-ui")
 include(":Imgur_Android")
 include(":desktop")
-include(":common")
