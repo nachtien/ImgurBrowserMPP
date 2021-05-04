@@ -8,18 +8,7 @@ kotlin {
             dependencies {
                 implementation(project(":common:main"))
                 implementation(Kamel.kamel)
-
                 implementation(Kotlin.coroutines)
-
-                // Ktor
-                implementation(Ktor.clientCore)
-                implementation(Ktor.clientCio)
-                implementation(Ktor.clientJson)
-                implementation(Ktor.clientLogging)
-                implementation(Ktor.clientSerialization)
-
-                // Kotlinx Serialization
-                implementation(Serialization.core)
             }
         }
         named("androidMain") {
@@ -31,7 +20,6 @@ kotlin {
             }
         }
         named("desktopMain") {
-//            resources.srcDirs("src/commonMain/resources")
             dependencies {
                 implementation(Compose.uiTooling)
                 implementation(compose.desktop.currentOs)
